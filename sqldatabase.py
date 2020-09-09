@@ -5,7 +5,7 @@ import json
 import pandas as pd
 
 def connect():
-	cnx = pymysql.connect('localhost', 'web', 'passw, 'voteo', use_unicode=True, cursorclass=pymysql.cursors.DictCursor)
+	cnx = pymysql.connect('localhost', 'web', 'passw', 'voteo', use_unicode=True, cursorclass=pymysql.cursors.DictCursor)
 	return cnx
 	
 def insert(data):
