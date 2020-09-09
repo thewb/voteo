@@ -42,7 +42,7 @@ def lookup():
         return render_template('template.html', raw=t, fname=fname, lname=lname)
 
     if fmat == "json":
-        return jdata
+        return json.dumps(jdata)
 
 if __name__ == '__main__':
    app.run(host="0.0.0.0",port=5000)  
