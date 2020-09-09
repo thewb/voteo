@@ -4,11 +4,12 @@ import pymysql
 import json
 import pandas as pd
 
-
-cnx = pymysql.connect('localhost', 'web', 'password', 'voteo', use_unicode=True, cursorclass=pymysql.cursors.DictCursor)
+def connect():
+	cnx = pymysql.connect('localhost', 'web', 'placeholder_pass', 'voteo', use_unicode=True, cursorclass=pymysql.cursors.DictCursor)
+	return cnx
 	
 def insert(data):
-	#cnx = connect()
+	cnx = connect()
 	cursor = cnx.cursor()
 	qdata = json.loads(data)
 	fields = (list(qdata.keys()))[1:-1]
@@ -18,11 +19,11 @@ def insert(data):
 	sql = "INSERT INTO `voter` (`vuid`, `fname`, `lname`, `regdate`, `bdate`, `maddress`, `raddress`, `precinct`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" 
 	cursor.execute(sql, (values[0], values[1], values[2], values[3], values[4], values[5], values[5], values[7]))
 	cnx.commit()
-	cursor.close()
+	cnx.close()
 	return 0
 
 def check_name(bdate, fname, lname):
-	#cnx = connect()
+	cnx = connect()
 	cursor = cnx.cursor()
 	queryb = 'SELECT * from voter where fname = "%s" and lname = "%s" and bdate = "%s"' % (fname, lname, bdate)
 	cursor.execute(queryb)
@@ -33,7 +34,7 @@ def check_name(bdate, fname, lname):
 		info = "notexist"
 	else:
 		info = qb_data 
-	cursor.close()
+	cnx.close()
 	return info
 
 def tobeornot(data, bdate, fname, lname):

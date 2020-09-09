@@ -24,6 +24,9 @@ def lookup():
     fmat = request.args.get("fmat") if request.args.get("fmat") else "html"    
     raw = talker.request(fname, lname, sdate, edate)
 
+    if raw is None:
+        return render_template('fourofour.html', fname=fname, lname=lname)
+
     #if voter is not in db
     if type(raw) is not dict:
         jdata = utils.jsonify(raw)
