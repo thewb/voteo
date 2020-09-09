@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>result</title>
+</head>
+<body>
+
+<H1>Info For: {{fname}} {{lname}}</H1>
+
+<ul>
+
+{% for key, value in raw.items() %}
+
+<li> {{ key }} : {{ value }} </li>
+
+{% endfor %}
+
+</ul>
+
+</body>
+</html>

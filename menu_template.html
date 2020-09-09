@@ -1,0 +1,26 @@
+    <html>
+        <head>
+        </head>
+                <body>
+                <h1>Austin Search</h1>
+                <h3>Search a name and birthdate range</h3>
+                <form action="/find">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname" value="John"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" value="Doe"><br>   
+                    <label for="sdate">Start date:</label><br>
+                    <input type="text" id="" name="sdate" value="10-10-89"><br>
+                    <label for="edate">End date:</label><br>
+                    <input type="text" id="edate" name="edate" value="10-10-89"><br><br>
+                    <label for="fmat">Choose a response type:</label>
+                    <select name="fmat" id="fmat">
+                        <option value="html">html</option>
+                        <option value="json">json</option>
+                    </select>
+                     <br><br>
+                    <input type="submit" value="Submit">
+                </form>
+                <p><i>*Limit the date range as much as possible.</i></p>
+                </body>
+    </html>

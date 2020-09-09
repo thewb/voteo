@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve voteo
+After=network.target
+
+[Service]
+User=wb
+Group=www-data
+WorkingDirectory=/home/wb/voteo
+Environment="PATH=/home/wb/voteo/voteo/bin"
+ExecStart=/home/wb/voteo/voteo/bin/uwsgi --ini voteo.ini
+
+[Install]
+WantedBy=multi-user.target
