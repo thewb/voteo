@@ -30,19 +30,19 @@ def lookup():
     #if voter is not in db
     if type(raw) is not dict:
         jdata = utils.jsonify(raw)
-        t = json.loads(jdata)
         sqldatabase.insert(jdata)
 
     #if voter is in db
     elif type(raw) is dict:
         jdata = json.dumps(raw, indent=4, sort_keys=False, default=str)
-        t = json.loads(jdata)
 
-    if fmat == "html":    
+    if fmat == "html":
+        t = json.loads(jdata)  
         return render_template('template.html', raw=t, fname=fname, lname=lname)
 
     if fmat == "json":
-        return json.dumps(jdata)
+        response = app.response_class(response=jdata, mimetype="application/json")
+        return response
 
 if __name__ == '__main__':
    app.run(host="0.0.0.0",port=5000)  

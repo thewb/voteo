@@ -16,7 +16,7 @@ def soupit(html):
     g = f.replace("Mailing Address:", "<li>Mailing Address:")
     h = g.replace("Voter Unique Identification:", "<li>Voter Unique Identification:")
     i = h.replace("Precinct", "<li>Precinct")
-    clean_info = i.strip()
+    clean_info = i.strip("  ")
     formatted = "<li>" 
     formatted += clean_info.replace("\n", "</li>")
     return formatted
@@ -39,8 +39,11 @@ def jsonify(voter_data):
     values = []
 
     for v in a:
-    	values.append(v.replace("  ", ""))
-
+        t = v.strip()
+        h = t.replace("\n", "")
+        i = h.replace("  ", "")
+        j = i.strip()
+        values.append(j)
 
     values.pop(0)
     values_dict["fname"] = values[0].split(" ")[0] 
@@ -52,8 +55,9 @@ def jsonify(voter_data):
     values_dict["maddress"] = values[3].split(":")[1]
     values_dict["precinct"] = values[4].split(":")[1]
     values_dict["bdate"] = str(voter_data.bdate)
-   
-    return json.dumps(values_dict, indent=4, sort_keys=False, default=None)
+
+    print(json.dumps(values_dict, sort_keys=False, default=None))
+    return json.dumps(values_dict, indent=0, sort_keys=False, default=None)
 
 
 
