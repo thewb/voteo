@@ -7,12 +7,11 @@ Currently, voteo only works with Austin, Texas; and Seattle, Washington voter re
 about voters.
  
 ```Reasoning```
-* Each county, or parish, and state in the country chooses what information to reveal about voters. I think 
-it should be minimal. And 
+* Each county, or parish, and state in the country chooses what information to reveal about voters. It should be minimal. And 
 
 * A federal information security standard should be created, or these systems should be covered under FIPS. 
 
-* Voter records databases should be forced to reveal minimal information exposure. 
+* Voter records databases should only reveal minimal information. 
 
 * All states/counties/parishes should reveal the same amount of information. 
 
