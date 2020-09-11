@@ -2,7 +2,6 @@
 from flask import Flask, request, render_template
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
-import sqldatabase
 import json
 import travis
 import king

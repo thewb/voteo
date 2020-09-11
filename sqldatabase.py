@@ -4,7 +4,6 @@ import pymysql
 import json
 import pandas as pd
 
-
 class DB:
   cnx = None
 
@@ -20,7 +19,6 @@ class DB:
       cursor = self.cnx.cursor()
       cursor.execute(sql)
     return cursor
-
 	
 def insert(data):
 	db = DB()
