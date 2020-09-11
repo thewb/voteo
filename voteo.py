@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from flask import Flask, request, render_template
 import warnings
-import utils
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 import sqldatabase
 import json
