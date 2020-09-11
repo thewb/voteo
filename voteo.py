@@ -2,12 +2,11 @@
 from flask import Flask, request, render_template
 import warnings
 import utils
-import talker
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 import sqldatabase
 import json
-import pandas as pd
-import os
+import travis
+import king
 
 app = Flask(__name__, template_folder='/home/wb/voteo')
 
@@ -15,21 +14,27 @@ app = Flask(__name__, template_folder='/home/wb/voteo')
 def index():
     return render_template('menu_template.html')
 
+locale = {"travis": travis.travis() 
+          "king": king.king()  
+}
+
 @app.route("/find")
 def lookup():
     fname = request.args.get("fname")
     lname = request.args.get("lname")
     sdate = request.args.get("sdate")
     edate = request.args.get("edate")
-    fmat = request.args.get("fmat") if request.args.get("fmat") else "html"    
-    raw = talker.request(fname, lname, sdate, edate)
+    fmat = request.args.get("fmat") if request.args.get("fmat") else "html"
+    county = request.args.get("county")    
+    talker = locale[county]
+    raw = talker.request(fname, lname, sdate, edate, county)
 
     if raw is None:
         return render_template('fourofour.html', fname=fname, lname=lname)
 
     #if voter is not in db
     if type(raw) is not dict:
-        jdata = utils.jsonify(raw)
+        jdata = talker.jsonify(raw)
         sqldatabase.insert(jdata)
 
     #if voter is in db

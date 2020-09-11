@@ -4,8 +4,13 @@ import pymysql
 import json
 import pandas as pd
 
+
+cnx = None
+
 def connect():
-	cnx = pymysql.connect('localhost', 'web', 'passw', 'voteo', use_unicode=True, cursorclass=pymysql.cursors.DictCursor)
+	global cnx
+	if not cnx:
+		cnx = pymysql.connect('localhost', 'web', 'Thisisthebestpasswordever!', 'voteo', use_unicode=True, cursorclass=pymysql.cursors.DictCursor)
 	return cnx
 	
 def insert(data):
@@ -19,7 +24,7 @@ def insert(data):
 	sql = "INSERT INTO `voter` (`vuid`, `fname`, `lname`, `regdate`, `bdate`, `maddress`, `raddress`, `precinct`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" 
 	cursor.execute(sql, (values[0], values[1], values[2], values[3], values[4], values[5], values[5], values[7]))
 	cnx.commit()
-	cnx.close()
+	cursorq.close()
 	return 0
 
 def check_name(bdate, fname, lname):
@@ -34,7 +39,7 @@ def check_name(bdate, fname, lname):
 		info = "notexist"
 	else:
 		info = qb_data 
-	cnx.close()
+	cursor.close()
 	return info
 
 def tobeornot(data, bdate, fname, lname):
@@ -43,6 +48,8 @@ def tobeornot(data, bdate, fname, lname):
 		return "inserted"
 	else:
 		return "notinserted"
+
+
 
 
 	
