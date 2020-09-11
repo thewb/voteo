@@ -1,9 +1,9 @@
 # voteo
 Voteo is a Flask application that searches voter records to build a database conatining voter information. 
-Currently, voteo only works with the Austin, Texas voter records database. 
+Currently, voteo only works with Austin, Texas; and Seattle, Washington voter records databases. 
  
 ```Future plans``` 
-* Include other counties/parishes and states to compare the amount of information different places provide
+* Include more counties/parishes and states to compare the amount of information different places provide
 about voters.
  
 ```Reasoning```
@@ -17,4 +17,5 @@ it should be minimal. And
 * All states/counties/parishes should reveal the same amount of information. 
 
 * Among information revealed by Texas, and Washington are address, date of birth, and name. Whereas Louisiana 
-provides party information, and does not reveal addresses.  
+provides party information, and does not reveal addresses.
+
