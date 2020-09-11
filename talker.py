@@ -4,7 +4,6 @@ import pandas as pd
 from urllib.parse import urlparse, parse_qs
 import sqldatabase
 
-
 class talker():
     #Base Class for counties
     def __init__(self):
@@ -36,7 +35,6 @@ class talker():
                 rep_str = r_data.date_url_header + month + r_data.month_separator + day + r_data.day_separator + str(i.year)
                 new_req = req.replace(r_data.dobstr, rep_str)
                 data = parse_qs(urlparse(new_req).query)
-                print(data)
                 r = requests.post(r_data.url, data = data)
                 if bad in r.content:
                     continue
@@ -44,7 +42,9 @@ class talker():
                     v = voter_data
                     v.bdate = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
                     v.data = r.content
-                    return v
+                    jdata = jsonify(v)
+                    sqldatabase.insert(jdata)
+                    return jdata
             else:
                 return record 
 

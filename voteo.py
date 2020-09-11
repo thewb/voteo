@@ -31,15 +31,6 @@ def lookup():
     if raw is None:
         return render_template('fourofour.html', fname=fname, lname=lname)
 
-    #if voter is not in db
-    if type(raw) is not dict:
-        jdata = talker.jsonify(raw)
-        sqldatabase.insert(jdata)
-
-    #if voter is in db
-    elif type(raw) is dict:
-        jdata = json.dumps(raw, indent=4, sort_keys=False, default=str)
-
     if fmat == "html":
         t = json.loads(jdata)  
         return render_template('template.html', raw=t, fname=fname, lname=lname)
