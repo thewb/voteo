@@ -6,6 +6,7 @@ import sqldatabase
 
 
 class talker():
+    #Base Class for counties
     def __init__(self):
     
     class voter_data:
