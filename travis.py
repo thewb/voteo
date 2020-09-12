@@ -17,13 +17,11 @@ class travis(talker.talker):
 		cache['criteria.month'] = month
 		cache['criteria.day'] = day
 		cache['criteria.year'] = year
-		print(cache)
 		return cache
 
 	def soupit(self,html):
 		soup = bs(html, "lxml")
 		raw_info = soup.findAll("div", {"class" : "voterInformation"})
-		print(raw_info)
 		text_info = raw_info[0].text
 		spaced_info = " ".join(text_info.split())
 		a = spaced_info.replace("This is not me | ", " ")
@@ -53,7 +51,6 @@ class travis(talker.talker):
 		}
 	
 		d = self.soupit(voter_data)
-		print(voter_data)
 		
 	
 		a = d.split("<li>")
