@@ -47,7 +47,7 @@ class king(talker.talker):
 			"bdate": "",
 			"raddress": raddress,
 			"maddress": maddress,
-			"precinct": precinct = soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).split(">")[1].split("<")[0]
+			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).split(">")[1].split("<")[0]
 		} 
 	
 		return json.dumps(values_dict, indent=0, sort_keys=False, default=None)	
