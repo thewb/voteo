@@ -36,8 +36,8 @@ class talker():
 			if record == "notexist":
 				data = self.pdata(fname, lname, day, month, year)
 				r = requests.post(self.url, data = data)
-				print(self.bad)
 				if self.bad in r.content:
+					print(self.bad)
 					continue
 				else:
 					jdata = json.loads(self.jsonify(r.content))
