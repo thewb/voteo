@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from urllib.parse import urlparse, parse_qs
 import sqldatabase
+import json
 
 class voteobj():
 	def __init__(self):
@@ -47,7 +48,7 @@ class talker():
 				if self.bad in r.content:
 					continue
 				else:
-					jdata = self.jsonify(r.content)
+					jdata = json.loads(self.jsonify(r.content))
 					print(jdata)
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
