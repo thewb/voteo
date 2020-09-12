@@ -6,7 +6,6 @@ import sqldatabase
 import json
 
 class talker():
-	#Base Class for counties
 	def __init__(self):
 		self.raw = " "
 
