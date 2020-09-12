@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import json
 from bs4 import BeautifulSoup as bs
+import talker
 
 class king(talker):
 	def __init__(self):
