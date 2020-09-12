@@ -13,7 +13,7 @@ class travis(talker.talker):
 	def pdata(self, fname, lname, day, month, year):
 		cache = parse_qs(urlparse(self.raw).query)
 		cache['criteria.firstName'] = fname
-		cache['lastName'] = lname
+		cache['criteria.lastName'] = lname
 		cache['criteria.month'] = month
 		cache['criteria.day'] = day
 		cache['criteria.year'] = year
