@@ -5,7 +5,7 @@ import talker
 
 class king(talker.talker):
 	def __init__(self):
-		self.raw"""https://info.kingcounty.gov/kcelections/vote/myvoterinfo.aspx
+		self.raw = """https://info.kingcounty.gov/kcelections/vote/myvoterinfo.aspx
 		?mode=BBDEDACBFBAAEA/__LASTFOCUS=&__VIEWSTATE=%2FwEPDwUKMTk2ODY3MTEwNWRk
 		jBlwTKM%2BtVtTJVBUu8TnqXjx%2Fgo%3D&__VIEWSTATEGENERATOR=50044A0F&__EVENT
 		TARGET=&__EVENTARGUMENT=&__EVENTVALIDATION=%2FwEdAAYqIbCOYpBRoC5cyVMaV1U
@@ -16,7 +16,7 @@ class king(talker.talker):
 		gePlaceHolder%24voterlogin%24dateofbirth=03%2F27%2F1978&ctl00%24kcMaster
 		PagePlaceHolder%24voterlogin%24housenumber=&ctl00%24kcMasterPagePlaceHol
 		der%24voterlogin%24mvpbtnlogin=Submit"""
-		
+
 		self.url = "https://info.kingcounty.gov/kcelections/vote/myvoterinfo.aspx?mode=BBDEDACBFBAAEA/"
 		self.bad = b"unable"
 		self.dobstr = "dateofbirth=03%2F27%2F1978"
