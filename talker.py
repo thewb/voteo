@@ -48,6 +48,7 @@ class talker():
 					continue
 				else:
 					jdata = self.jsonify(r.content)
+					print(jdata)
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
 					print(jdata['lname'])
