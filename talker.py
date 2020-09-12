@@ -14,6 +14,8 @@ class talker():
 	def __init__(self):
 		self.raw = " "
 
+	def url(self, ):
+
 	def jsonify(self,html):
 		pass
 
@@ -34,13 +36,12 @@ class talker():
 				day = "0" + str(i.day)
 			else:
 				day = str(i.day)
+			year = str(i.year)
 			bdate = pd.to_datetime(i).date()
 			#record = sqldatabase.check_name(bdate, fname, lname) 
 			record = "notexist"
 			if record == "notexist":
-				rep_str = self.date_url_header + month + self.month_separator + day + self.day_separator + str(i.year)
-				new_req = self.raw.replace(self.dobstr, rep_str)
-				data = parse_qs(urlparse(new_req).query)
+				data = self.pdata(fname, lname, day, month, year)
 				r = requests.post(self.url, data = data)
 				print(data)
 				print(self.url)

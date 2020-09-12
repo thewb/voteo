@@ -2,25 +2,22 @@
 import json
 from bs4 import BeautifulSoup as bs
 import talker
+from urllib.parse import urlparse, parse_qs, urlencode
 
 class travis(talker.talker):
 	def __init__(self):
-		self.raw = """https://www.votetravis.com/vexpress/submit.do?
-		action=display&searchType=N&electionCode=&electionDateStr=&c
-		riteria.firstName=DEREK&maxPollingLocationsDisplay=3&criteri
-		a.lastName=HINCH&criteria.vuid=&criteria.month=01&criteria.d
-		ay=01&criteria.year=1980&earlyVoting=true&address.fullAddres
-		s=TX+&address.partialAddress=&address.city=&address.state=TX
-		&address.zipcode="""
-		self.url = "https://www.votetravis.com/vexpress/submit.do"
+		self.raw = "https://www.votetravis.com/vexpress/submit.do?action=display&searchType=N&electionCode=&electionDateStr=&criteria.firstName=DEREK&maxPollingLocationsDisplay=3&criteria.lastName=HINCH&criteria.vuid=&criteria.month=01&criteria.day=01&criteria.year=1980&earlyVoting=true&address.fullAddress=TX+&address.partialAddress=&address.city=&address.state=TX&address.zipcode="
 		self.bad = b"Voter Information Cannot be Found"
-		self.dobstr = "criteria.month=01&criteria.day=01&criteria.year=1980"
-		self.date_url_header = "criteria.month="
-		self.month_separator = "&criteria.day="
-		self.day_separator = "&criteria.year="
-		self.name_string = "firstName=DEREK&maxPollingLocationsDisplay=3&criteria.lastName=HINCH"
-		self.fname_separator = "firstName="
-		self.lname_separator = "&maxPollingLocationsDisplay=3&criteria.lastName="
+		self.url = "https://www.votetravis.com/vexpress/submit.do"
+		
+	def pdata(self, fname, lname, day, month, year):
+		cache = parse_qs(urlparse(raw).query)
+		cache['criteria.firstName'] = fname
+		cache['lastName'] = lname
+		cache['criteria.month'] = month
+		cache['criteria.day'] = day
+		cache['criteria.year'] = year
+		return cache
 
 	def soupit(self,html):
 		soup = bs(html, "lxml")
