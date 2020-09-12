@@ -7,12 +7,12 @@ import sqldatabase
 class talker():
 	#Base Class for counties
 	def __init__(self):
-		self.info = "info"
+		self.raw = " "
 	#Function looks up voters. It looks in the MySQL database first, then makes a request to the county website
 	#It loops until it finds a voter, and returns the information. If the information is class talker it returns
 	#a talker object, if it's in the database it returns a record from the database.
 	def request(self, fname, lname, sdate, edate):
-		self.raw.replace(r_data.name_string, r_data.fname_separator + fname + r_data.lname_separator + lname)         
+		self.raw.replace(self.name_string, self.fname_separator + fname + self.lname_separator + lname)         
 		daterange = pd.date_range(sdate, edate)
 		for i in daterange:
 			if i.month < 10:
@@ -26,14 +26,14 @@ class talker():
 			bdate = pd.to_datetime(i).date()
 			record = sqldatabase.check_name(bdate, fname, lname) 
 			if record == "notexist":
-				rep_str = r_data.date_url_header + month + r_data.month_separator + day + r_data.day_separator + str(i.year)
-				new_req = req.replace(r_data.dobstr, rep_str)
+				rep_str = self.date_url_header + month + self.month_separator + day + self.day_separator + str(i.year)
+				new_req = req.replace(self.dobstr, rep_str)
 				data = parse_qs(urlparse(new_req).query)
-				r = requests.post(r_data.url, data = data)
+				r = requests.post(self.url, data = data)
 				if bad in r.content:
 					continue
 				else:
-					v = voter_data
+					v = voteself
 					v.bdate = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
 					v.data = r.content
 					jdata = jsonify(v)
@@ -50,7 +50,7 @@ class talker():
 	def soupit():
 		pass
 
-	class voter_data:
+	class voteself:
 		def __init__(self):
 			self.data = ""
 			self.bdate = ""
