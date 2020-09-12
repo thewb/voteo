@@ -24,7 +24,8 @@ class talker():
 			else:
 				day = str(i.day)
 			bdate = pd.to_datetime(i).date()
-			record = sqldatabase.check_name(bdate, fname, lname) 
+			#record = sqldatabase.check_name(bdate, fname, lname) 
+			record = "notexist"
 			if record == "notexist":
 				rep_str = self.date_url_header + month + self.month_separator + day + self.day_separator + str(i.year)
 				new_req = req.replace(self.dobstr, rep_str)
