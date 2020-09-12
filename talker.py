@@ -33,7 +33,7 @@ class talker():
 				if bad in r.content:
 					continue
 				else:
-					v = voteself
+					v = voteobj
 					v.bdate = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
 					v.data = r.content
 					jdata = jsonify(v)
@@ -44,13 +44,13 @@ class talker():
 
 	#Abstract functions becasue the data from each county is different. These will remove HTML and convert to json.
 	#We usually just call soupit from jsonify because we just want json in the view.
-	def jsonify():
+	def jsonify(html):
 		pass
 
-	def soupit():
+	def soupit(html):
 		pass
 
-	class voteself:
+	class voteobj:
 		def __init__(self):
 			self.data = ""
 			self.bdate = ""
