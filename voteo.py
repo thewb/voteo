@@ -27,7 +27,7 @@ def lookup():
     fmat = request.args.get("fmat") if request.args.get("fmat") else "html"
     county = request.args.get("county")    
     talker = locale[county]
-    raw = talker.request(fname, lname, sdate, edate, county)
+    raw = talker.request(fname, lname, sdate, edate)
 
     if raw is None:
         return render_template('fourofour.html', fname=fname, lname=lname)
