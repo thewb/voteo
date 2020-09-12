@@ -27,7 +27,7 @@ def lookup():
     fmat = request.args.get("fmat") if request.args.get("fmat") else "html"
     county = request.args.get("county")    
     t = locale[county]
-    print(locale)
+    print(t)
     raw = t.request(fname, lname, sdate, edate)
 
     if raw is None:
