@@ -4,6 +4,11 @@ import pandas as pd
 from urllib.parse import urlparse, parse_qs
 import sqldatabase
 
+class voteobj():
+	def __init__(self):
+		self.data = ""
+		self.bdate = ""
+
 class talker():
 	#Base Class for counties
 	def __init__(self):
@@ -34,7 +39,7 @@ class talker():
 				if self.bad in r.content:
 					continue
 				else:
-					v = voteobj
+					v = voteobj()
 					v.bdate = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
 					v.data = r.content
 					jdata = jsonify(v)
@@ -51,7 +56,3 @@ class talker():
 	def soupit(html):
 		pass
 
-	class voteobj:
-		def __init__(self):
-			self.data = ""
-			self.bdate = ""
