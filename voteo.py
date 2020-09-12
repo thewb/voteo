@@ -14,9 +14,9 @@ def index():
 
 
 
-locale = {"travis": travis() 
-          "king": king()  
-}
+locale = {"travis": travis.travis(),
+          "king": travis.king()  
+         }
 
 @app.route("/find")
 def lookup():
