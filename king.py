@@ -19,6 +19,7 @@ class king(talker.talker):
 
 	def jsonify(self,html):
 		soup = bs(html, "lxml")
+		print(type(soup))
 		rstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfohousestreet"}).split(">")[1].split("<")[0]
 		rcsz = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfocitystatezip"}).split(">")[1].split("<")[0]
 		raddress = rstreet + rcsz
