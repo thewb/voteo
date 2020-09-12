@@ -48,7 +48,7 @@ class talker():
 					v = voteobj()
 					v.bdate = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
 					v.data = r.content
-					jdata = jsonify(v)
+					jdata = self.jsonify(v)
 					sqldatabase.insert(jdata)
 					return jdata
 			else:
