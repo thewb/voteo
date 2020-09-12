@@ -8,13 +8,13 @@ import king
 
 app = Flask(__name__, template_folder='/home/wb/voteo')
 
-@app.route("/")
-def index():
-    return render_template('menu_template.html')
-
 locale = {"travis": travis.travis(),
           "king": king.king()  
          }
+
+@app.route("/")
+def index():
+    return render_template('menu_template.html')
 
 @app.route("/find")
 def lookup():

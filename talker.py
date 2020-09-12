@@ -5,11 +5,6 @@ from urllib.parse import urlparse, parse_qs
 import sqldatabase
 import json
 
-class voteobj():
-	def __init__(self):
-		self.data = ""
-		self.bdate = ""
-
 class talker():
 	#Base Class for counties
 	def __init__(self):
@@ -50,7 +45,6 @@ class talker():
 					jdata = json.loads(self.jsonify(r.content))
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
-					print(jdata['lname'])
 					return jdata
 			else:
 				return record 
