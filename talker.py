@@ -50,6 +50,7 @@ class talker():
 					jdata = self.jsonify(r.content)
 					jdata['bdate'] = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
 					sqldatabase.insert(jdata)
+					print(jdata['lname'])
 					return jdata
 			else:
 				return record 
