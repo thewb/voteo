@@ -22,7 +22,6 @@ class DB:
 def insert(data):
 	db = DB()
 	#qdata = json.loads(data)
-	qdata = data
 	fields = (list(qdata.keys()))[1:-1]
 	values = list(map(str.strip, list(qdata.values())))
 	values[3] = pd.to_datetime(values[3]).date()

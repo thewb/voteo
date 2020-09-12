@@ -51,7 +51,7 @@ class talker():
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
 					print(jdata['lname'])
-					return query
+					return jdata
 			else:
 				return record 
 
