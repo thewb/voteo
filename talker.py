@@ -25,8 +25,7 @@ class talker():
 	#Function looks up voters. It looks in the MySQL database first, then makes a request to the county website
 	#It loops until it finds a voter, and returns the information. If the information is class talker it returns
 	#a talker object, if it's in the database it returns a record from the database.
-	def request(self, fname, lname, sdate, edate):
-		self.raw.replace(self.name_string, self.fname_separator + fname + self.lname_separator + lname)         
+	def request(self, fname, lname, sdate, edate):       
 		daterange = pd.date_range(sdate, edate)
 		for i in daterange:
 			if i.month < 10:
