@@ -47,7 +47,7 @@ class talker():
 				if self.bad in r.content:
 					continue
 				else:
-					jdata = json.dumps(self.jsonify(r.content))
+					jdata = json.loads(self.jsonify(r.content))
 					print(jdata)
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
