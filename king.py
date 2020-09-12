@@ -37,7 +37,7 @@ class king(talker.talker):
 		mstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailinghousestreet"}).split(">")[1].split("<")[0]
 		mcst = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailingcitystatezip"}).split(">")[1].split("<")[0]
 		maddress = mstreet + mcst
-		not_available = "N/A"
+		not_available = "N/A in kingcounty"
 	
 		values_dict = {
 			"vuid": not_available,
