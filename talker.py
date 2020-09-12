@@ -39,8 +39,6 @@ class talker():
 				day = str(i.day)
 			year = str(i.year)
 			bdate = pd.to_datetime(i).date()
-			print(bdate)
-
 			#record = sqldatabase.check_name(bdate, fname, lname) 
 			record = "notexist"
 			if record == "notexist":
@@ -49,7 +47,7 @@ class talker():
 				if self.bad in r.content:
 					continue
 				else:
-					jdata = self.jsonify(r.content)
+					jdata = json.dumps(self.jsonify(r.content))
 					print(jdata)
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
