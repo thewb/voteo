@@ -2,6 +2,7 @@
 import json
 from bs4 import BeautifulSoup as bs
 import talker
+from urllib.parse import urlparse, parse_qs, urlencode
 
 class king(talker.talker):
 	def __init__(self):
