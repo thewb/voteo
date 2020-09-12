@@ -7,11 +7,6 @@ import sqldatabase
 class talker():
 	#Base Class for counties
 	def __init__(self):
-	
-	class voter_data:
-		def __init__(self):
-		self.data = ""
-		self.bdate = ""
 
 	#Function looks up voters. It looks in the MySQL database first, then makes a request to the county website
 	#It loops until it finds a voter, and returns the information. If the information is class talker it returns
@@ -55,3 +50,8 @@ class talker():
 
 	def soupit():
 		pass
+
+	class voter_data:
+		def __init__(self):
+			self.data = ""
+			self.bdate = ""
