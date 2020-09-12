@@ -26,8 +26,8 @@ def insert(data):
 	values = list(map(str, list(qdata.values())))
 	values[3] = pd.to_datetime(values[3]).date()
 	values[4] = pd.to_datetime(values[4]).date()
-	sql = "INSERT INTO `voter` (`vuid`, `fname`, `lname`, `regdate`, `bdate`, `maddress`, `raddress`, `precinct`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" 
-	cursor = db.query(sql, (values[0], values[1], values[2], values[3], values[4], values[5], values[5], values[7]))
+	sql = "INSERT INTO `voter` (`vuid`, `fname`, `lname`, `regdate`, `bdate`, `maddress`, `raddress`, `precinct`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" % (values[0], values[1], values[2], values[3], values[4], values[5], values[5], values[7])
+	cursor = db.query(sql)
 	return 0
 
 def check_name(bdate, fname, lname):
