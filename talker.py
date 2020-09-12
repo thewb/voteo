@@ -40,6 +40,7 @@ class talker():
 					continue
 				else:
 					jdata = json.loads(self.jsonify(r.content))
+					print(jdata)
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
 					return jdata
