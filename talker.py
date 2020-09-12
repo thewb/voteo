@@ -13,7 +13,7 @@ class talker():
 	#a talker object, if it's in the database it returns a record from the database.
 	def request(fname, lname, sdate, edate, county):
 		r_data = place[county]
-		raw.replace(r_data.name_string, r_data.fname_separator + fname + r_data.lname_separator + lname)         
+		self.raw.replace(r_data.name_string, r_data.fname_separator + fname + r_data.lname_separator + lname)         
 		daterange = pd.date_range(sdate, edate)
 		for i in daterange:
 			if i.month < 10:
