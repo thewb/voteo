@@ -28,7 +28,7 @@ class talker():
 			record = "notexist"
 			if record == "notexist":
 				rep_str = self.date_url_header + month + self.month_separator + day + self.day_separator + str(i.year)
-				new_req = req.replace(self.dobstr, rep_str)
+				new_req = raw.replace(self.dobstr, rep_str)
 				data = parse_qs(urlparse(new_req).query)
 				r = requests.post(self.url, data = data)
 				if bad in r.content:
