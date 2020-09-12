@@ -38,21 +38,17 @@ class talker():
 				day = str(i.day)
 			year = str(i.year)
 			bdate = pd.to_datetime(i).date()
+
 			#record = sqldatabase.check_name(bdate, fname, lname) 
 			record = "notexist"
 			if record == "notexist":
 				data = self.pdata(fname, lname, day, month, year)
 				r = requests.post(self.url, data = data)
-				print(data)
-				print(self.url)
-				print(r.content)
 				if self.bad in r.content:
 					continue
 				else:
-					v = voteobj()
-					v.bdate = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
-					v.data = r.content
-					jdata = self.jsonify(v)
+					jdata = self.jsonify(r.content)
+					jdata['bdate'] = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
 					sqldatabase.insert(jdata)
 					return jdata
 			else:

@@ -25,8 +25,10 @@ def lookup():
     sdate = request.args.get("sdate")
     edate = request.args.get("edate")
     fmat = request.args.get("fmat") if request.args.get("fmat") else "html"
-    county = request.args.get("county")    
+    county = request.args.get("county")  
+
     t = locale[county]
+    
     raw = t.request(fname, lname, sdate, edate)
 
     if raw is None:
