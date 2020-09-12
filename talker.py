@@ -49,7 +49,4 @@ class talker():
 			else:
 				return record 
 
-	#Abstract functions becasue the data from each county is different. These will remove HTML and convert to json.
-	#We usually just call soupit from jsonify because we just want json in the view.
-
 
