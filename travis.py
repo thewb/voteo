@@ -75,6 +75,5 @@ class travis(talker.talker):
 		values_dict["raddress"] = values[2].split(":")[1]
 		values_dict["maddress"] = values[3].split(":")[1]
 		values_dict["precinct"] = values[4].split(":")[1]
-		values_dict["bdate"] = str(voter_data.bdate)
 	
 		return json.dumps(values_dict, indent=0, sort_keys=False, default=None)	
