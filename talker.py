@@ -31,7 +31,7 @@ class talker():
 				new_req = self.raw.replace(self.dobstr, rep_str)
 				data = parse_qs(urlparse(new_req).query)
 				r = requests.post(self.url, data = data)
-				if bad in r.content:
+				if self.bad in r.content:
 					continue
 				else:
 					v = voteobj
