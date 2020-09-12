@@ -15,7 +15,7 @@ def index():
 
 
 locale = {"travis": travis.travis(),
-          "king": travis.king()  
+          "king": king.king()  
          }
 
 @app.route("/find")
