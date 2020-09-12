@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from urllib.parse import urlparse, parse_qs
 
@@ -9,5 +9,4 @@ raw = """https://www.votetravis.com/vexpress/submit.do?
 		criteria.day=01&criteria.year=1980&earlyVoting=true&address.fullAddress=TX+&
 		address.partialAddress=&address.city=&address.state=TX&address.zipcode="""
 
-
- parse_qs(urlparse(raw).query)
+parse_qs(urlparse(raw).query)
