@@ -25,6 +25,7 @@ class travis(talker.talker):
 	def soupit(self,html):
 		soup = bs(html, "lxml")
 		raw_info = soup.findAll("div", {"class" : "voterInformation"})
+		print(raw_info)
 		text_info = raw_info[0].text
 		spaced_info = " ".join(text_info.split())
 		a = spaced_info.replace("This is not me | ", " ")
