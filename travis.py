@@ -17,6 +17,7 @@ class travis(talker.talker):
 		cache['criteria.month'] = month
 		cache['criteria.day'] = day
 		cache['criteria.year'] = year
+		print(cache)
 		return cache
 
 	def soupit(self,html):
