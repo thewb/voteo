@@ -54,6 +54,8 @@ class travis(talker.talker):
 		}
 	
 		d = self.soupit(voter_data.data)
+		print(voter_data)
+		print(voter_data.data)
 	
 		a = d.split("<li>")
 		values = []
