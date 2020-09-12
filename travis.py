@@ -5,7 +5,13 @@ import talker
 
 class travis(talker.talker):
 	def __init__(self):
-		self.raw = "https://www.votetravis.com/vexpress/submit.do?action=display&searchType=N&electionCode=&electionDateStr=&criteria.firstName=DEREK&maxPollingLocationsDisplay=3&criteria.lastName=HINCH&criteria.vuid=&criteria.month=01&criteria.day=01&criteria.year=1980&earlyVoting=true&address.fullAddress=TX+&address.partialAddress=&address.city=&address.state=TX&address.zipcode="
+		self.raw = """https://www.votetravis.com/vexpress/submit.do?
+		action=display&searchType=N&electionCode=&electionDateStr=&c
+		riteria.firstName=DEREK&maxPollingLocationsDisplay=3&criteri
+		a.lastName=HINCH&criteria.vuid=&criteria.month=01&criteria.d
+		ay=01&criteria.year=1980&earlyVoting=true&address.fullAddres
+		s=TX+&address.partialAddress=&address.city=&address.state=TX
+		&address.zipcode="""
 		self.url = "https://www.votetravis.com/vexpress/submit.do"
 		self.bad = b"Voter Information Cannot be Found"
 		self.dobstr = "criteria.month=01&criteria.day=01&criteria.year=1980"
