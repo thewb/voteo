@@ -48,11 +48,11 @@ class talker():
 					continue
 				else:
 					jdata = json.loads(self.jsonify(r.content))
-					print(jdata)
 					jdata['bdate'] = bdate
-					sqldatabase.insert(jdata)
+					query = json.dumps(jdata)
+					sqldatabase.insert(query)
 					print(jdata['lname'])
-					return jdata
+					return query
 			else:
 				return record 
 
