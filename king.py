@@ -7,7 +7,7 @@ from urllib.parse import urlparse, parse_qs, urlencode
 class king(talker.talker):
 	def __init__(self):
 		self.raw = "https://info.kingcounty.gov/kcelections/vote/myvoterinfo.aspx?mode=BBDEDACBFBAAEA/__LASTFOCUS=&__VIEWSTATE=%2FwEPDwUKMTk2ODY3MTEwNWRkjBlwTKM%2BtVtTJVBUu8TnqXjx%2Fgo%3D&__VIEWSTATEGENERATOR=50044A0F&__EVENTTARGET=&__EVENTARGUMENT=&__EVENTVALIDATION=%2FwEdAAYqIbCOYpBRoC5cyVMaV1UJfXpRWHcFD3xcLLL8GEDQecqhKm6XNq2qvCsXIfChktWtnqJgHjbcnqdE2lemm9J5FYn6O78xAbZqtTP8hIE7jpbTm5MhD69V6cvciyfPqhjOWYTm9SoQo8jBWAlCgue3B59%2Fwg%3D%3D&ctl00%24kcMasterPagePlaceHolder%24voterlogin%24firstname=FeiFei&ctl00%24kcMasterPagePlaceHolder%24voterlogin%24lastname=Zhang&ctl00%24kcMasterPagePlaceHolder%24voterlogin%24dateofbirth=03%2F27%2F1978&ctl00%24kcMasterPagePlaceHolder%24voterlogin%24housenumber=&ctl00%24kcMasterPagePlaceHolder%24voterlogin%24mvpbtnlogin=Submit"
-		self.bad = b"unable"
+		self.bad = b"We are unable to find a registered voter"
 		self.url = "https://info.kingcounty.gov/kcelections/vote/myvoterinfo.aspx?mode=BBDEDACBFBAAEA/"
 
 	def pdata(self, fname, lname, day, month, year):
