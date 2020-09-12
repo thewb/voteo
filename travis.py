@@ -52,9 +52,9 @@ class travis(talker.talker):
 			"precinct": ""
 		}
 	
-		d = self.soupit(voter_data.data)
+		d = self.soupit(voter_data)
 		print(voter_data)
-		print(voter_data.data)
+		
 	
 		a = d.split("<li>")
 		values = []
