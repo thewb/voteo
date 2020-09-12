@@ -14,7 +14,8 @@ class talker():
 	def __init__(self):
 		self.raw = " "
 
-	def url(self, ):
+	def pdata(self, fname, lname, day, month, year):
+		pass
 
 	def jsonify(self,html):
 		pass
