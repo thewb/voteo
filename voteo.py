@@ -12,8 +12,6 @@ app = Flask(__name__, template_folder='/home/wb/voteo')
 def index():
     return render_template('menu_template.html')
 
-
-
 locale = {"travis": travis.travis(),
           "king": king.king()  
          }
