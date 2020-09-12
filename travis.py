@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup as bs
 import talker
 
-class travis(talker):
+class travis(talker.talker):
 	def __init__(self):
 		self.raw = "https://www.votetravis.com/vexpress/submit.do?action=display&searchType=N&electionCode=&electionDateStr=&criteria.firstName=DEREK&maxPollingLocationsDisplay=3&criteria.lastName=HINCH&criteria.vuid=&criteria.month=01&criteria.day=01&criteria.year=1980&earlyVoting=true&address.fullAddress=TX+&address.partialAddress=&address.city=&address.state=TX&address.zipcode="
 		self.url = "https://www.votetravis.com/vexpress/submit.do"
