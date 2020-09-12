@@ -48,7 +48,7 @@ class talker():
 					continue
 				else:
 					jdata = self.jsonify(r.content)
-					jdata['bdate'] = pd.to_datetime(str(i.month) + "/" + str(i.day) + "/" + str(i.year)).date()
+					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
 					print(jdata['lname'])
 					return jdata
