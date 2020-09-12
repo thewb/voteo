@@ -27,7 +27,7 @@ class king(talker.talker):
 		self.fname_separator = "firstname="
 		self.lname_separator = "&ctl00%24kcMasterPagePlaceHolder%24voterlogin%24lastname="
 
-	def jsonify(html):
+	def jsonify(self,html):
 		soup = bs(html, "lxml")
 	
 		rstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfohousestreet"}).split(">")[1].split("<")[0]

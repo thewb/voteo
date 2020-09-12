@@ -13,11 +13,11 @@ class talker():
 	#Base Class for counties
 	def __init__(self):
 		self.raw = " "
-		
-	def jsonify(html):
+
+	def jsonify(self,html):
 		pass
 
-	def soupit(html):
+	def soupit(self,html):
 		pass
 	#Function looks up voters. It looks in the MySQL database first, then makes a request to the county website
 	#It loops until it finds a voter, and returns the information. If the information is class talker it returns

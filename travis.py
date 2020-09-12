@@ -22,7 +22,7 @@ class travis(talker.talker):
 		self.fname_separator = "firstName="
 		self.lname_separator = "&maxPollingLocationsDisplay=3&criteria.lastName="
 
-	def soupit(html):
+	def soupit(self,html):
 		soup = bs(html, "lxml")
 		raw_info = soup.findAll("div", {"class" : "voterInformation"})
 		text_info = raw_info[0].text
@@ -41,7 +41,7 @@ class travis(talker.talker):
 		formatted += clean_info.replace("\n", "</li>")
 		return formatted
 
-	def jsonify(voter_data):
+	def jsonify(self,voter_data):
 		values_dict = {
 			"vuid": "",
 			"fname": "",
