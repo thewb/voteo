@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import db_config
 import pymysql
 import json
 import pandas as pd
