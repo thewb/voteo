@@ -19,25 +19,26 @@ class king(talker.talker):
 
 	def jsonify(self,html):
 		soup = bs(html, "lxml")
-		print(type(soup))
-		rstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfohousestreet"}).split(">")[1].split("<")[0]
-		rcsz = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfocitystatezip"}).split(">")[1].split("<")[0]
-		raddress = rstreet + rcsz
+
+		rstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfohousestreet"}).get_text(strip=True)
+		rcsz = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfocitystatezip"}).get_text(strip=True)
+		raddress = rstreet + " " + rcsz
 		
-		mstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailinghousestreet"}).split(">")[1].split("<")[0]
-		mcst = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailingcitystatezip"}).split(">")[1].split("<")[0]
-		maddress = mstreet + mcst
+		mstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailinghousestreet"}).get_text(strip=True)
+		mcst = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailingcitystatezip"}).get_text(strip=True)
+		maddress = mstreet + " " + mcst
 		not_available = "N/A in kingcounty"
-	
+
 		values_dict = {
 			"vuid": not_available,
-			"fname": soup.find("span", {"class": "mvi-my-name-first"}).split(">")[1].split("<")[0],
-			"lname": soup.find("span", {"class": "mvi-my-name-last"}).split(">")[1].split("<")[0],
+			"fname": soup.find("span", {"class": "mvi-my-name-first"}).get_text(strip=True),
+			"lname": soup.find("span", {"class": "mvi-my-name-last"}).get_text(strip=True),
 			"rdate": not_available,
 			"bdate": "",
 			"raddress": raddress,
 			"maddress": maddress,
-			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).split(">")[1].split("<")[0]
-		} 
+			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).get_text(strip=True)
+		}
+ 
 	
 		return json.dumps(values_dict, indent=0, sort_keys=False, default=None)	
