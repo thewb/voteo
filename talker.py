@@ -15,9 +15,6 @@ class talker():
 	def jsonify(self,html):
 		pass
 
-	def soupit(self,html):
-		pass
-
 	def request(self, fname, lname, sdate, edate):       
 		daterange = pd.date_range(sdate, edate)
 		for i in daterange:
