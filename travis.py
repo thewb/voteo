@@ -22,7 +22,6 @@ class travis(talker.talker):
 	def jsonify(self,html):
 		soup = bs(html, "lxml")
 		nonBreakSpace = u'\xa0'
-		print(p)
 		values_dict = {
 			"lame": soup.find("input", {"name": "criteria.lastName"}).get('value'),
 			"fname": soup.find("input", {"name": "criteria.firstName"}).get('value'),
