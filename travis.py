@@ -22,15 +22,15 @@ class travis(talker.talker):
 	def jsonify(self,html):
 		soup = bs(html, "lxml")
 		nonBreakSpace = u'\xa0'
-		p = soup.find("div", {"class": "voterInfoDivider"})
 		print(p)
 		values_dict = {
-			"lame": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[1],
-			"fname": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[0],
-			"vuid": soup.find("span", {"class": "voterVUID"}).get_text(strip=True),
-			"rdate": "123",
-			"raddress": soup.find("span", text="Residence Address:").next_sibling.get_text(strip=True),
-			"precinct": soup.find("span", text="Precinct:").next_sibling.get_text(strip=True)
+			"lame": soup.find("input", {"name": "criteria.lastName"}).get('value'),
+			"fname": soup.find("input", {"name": "criteria.firstName"}).get('value'),
+			"vuid": soup.find("span", {"class": "voterVUID"}).getText(strip=True),
+			"rdate": soup.find("td", {"valign": "top"}).text.split()[4],
+			"raddress": soup.find("input", {"name": "address.fullAddress"}).get('value'),
+			"maddress": soup.find("input", {"name": "address.fullAddress"}).get('value'), 
+			"precinct": soup.find_all("td", {"valign": "top"}, limit=5)[4].text.split()[1]
 		}
 
 		return json.dumps(values_dict, indent=0, sort_keys=False, default=None)	
