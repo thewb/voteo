@@ -22,7 +22,7 @@ class travis(talker.talker):
 	def jsonify(self,html):
 		soup = bs(html, "lxml")
 		nonBreakSpace = u'\xa0'
-		p = soup.find("div", {"class": "voterInfoDivider"}).findAll("br", limit=2)
+		p = soup.find("div", {"class": "voterInfoDivider"}).findAll("br")
 		print(p)
 		values_dict = {
 			"lame": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[1],
