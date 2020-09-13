@@ -23,7 +23,7 @@ class travis(talker.talker):
 		soup = bs(html, "lxml")
 		nonBreakSpace = u'\xa0'
 		print(soup)
-		print(soup.find("text", text="Registration:").get_text(strip=True))
+		print(soup.find("div", {"class": "voterInfoDivider"}).get_text(strip=True))
 		values_dict = {
 			"lame": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[1],
 			"fname": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[0],
