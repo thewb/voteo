@@ -22,11 +22,12 @@ class travis(talker.talker):
 	def jsonify(self,html):
 		soup = bs(html, "lxml")
 		nonBreakSpace = u'\xa0'
+		print(soup.find("text", text="Registration: ").get_text(strip=True).findNext("br").get_text(strip=True))
 		values_dict = {
 			"lame": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[1],
 			"fname": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[0],
 			"vuid": soup.find("span", {"class": "voterVUID"}).get_text(strip=True),
-			"rdate": soup.find("text", text="Registration: ").get_text(strip=True).findNext("br").get_text(strip=True),
+			"rdate": "123",
 			"raddress": soup.find("span", text="Residence Address:").next_sibling.get_text(strip=True),
 			"precinct": soup.find("span", text="Precinct:").next_sibling.get_text(strip=True)
 		}
