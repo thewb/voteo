@@ -19,7 +19,7 @@ class travis(talker.talker):
 		cache['criteria.year'] = year
 		return cache
 
-	def jsonify(self,voter_data):
+	def jsonify(self,html):
 		soup = bs(html, "lxml")
 		nonBreakSpace = u'\xa0'
 		values_dict = {
