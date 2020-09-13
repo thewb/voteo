@@ -26,7 +26,7 @@ class travis(talker.talker):
 			"lame": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[1],
 			"fname": soup.find("div", {"class": "voterNameInfo"}).get_text(strip=True).split(nonBreakSpace)[0],
 			"vuid": soup.find("span", {"class": "voterVUID"}).get_text(strip=True),
-			"rdate": soup.find("span", text="Effective Date of <BR/>Registration: ").next_sibling.get_text(strip=True),
+			"rdate": soup.find("span", text="Effective Date of").next_sibling.get_text(strip=True),
 			"raddress": soup.find("span", text="Residence Address:").next_sibling.get_text(strip=True),
 			"precinct": soup.find("span", text="Precinct:").next_sibling.get_text(strip=True)
 		}
