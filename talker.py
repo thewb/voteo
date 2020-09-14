@@ -1,9 +1,7 @@
 #!/usr/bin/python
 import requests
 import pandas as pd
-from urllib.parse import urlparse, parse_qs
 import sqldatabase
-import json
 
 class talker():
 	def __init__(self):

@@ -1,8 +1,7 @@
 #!/usr/bin/python
-import json
 from bs4 import BeautifulSoup as bs
 import talker
-from urllib.parse import urlparse, parse_qs, urlencode
+from urllib.parse import urlparse, parse_qs
 import pandas as pd
 
 class king(talker.talker):
