@@ -32,12 +32,14 @@ class king(talker.talker):
 		values_dict = {
 			"vuid": not_available,
 			"fname": soup.find("span", {"class": "mvi-my-name-first"}).get_text(strip=True),
+			"mname": not_available,
 			"lname": soup.find("span", {"class": "mvi-my-name-last"}).get_text(strip=True),
 			"regdate": pd.to_datetime("1900-01-01").date(),
 			"bdate": "",
 			"raddress": raddress,
 			"maddress": maddress,
-			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).get_text(strip=True)
+			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).get_text(strip=True),
+			"party": not_available
 		}
 
 		return values_dict

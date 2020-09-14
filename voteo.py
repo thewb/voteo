@@ -10,7 +10,8 @@ import json
 app = Flask(__name__, template_folder='/home/wb/voteo')
 
 locale = {"travis": travis.travis(),
-          "king": king.king()  
+          "king": king.king(),
+          "multnomah": multnomah.multnomah()
          }
 
 @app.route("/")
