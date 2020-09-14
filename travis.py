@@ -20,7 +20,6 @@ class travis(talker.talker):
 
 	def jsonify(self,html):
 		soup = bs(html, "lxml")
-		nonBreakSpace = u'\xa0'
 		values_dict = {
 			"vuid": soup.find("span", {"class": "voterVUID"}).getText(strip=True),
 			"fname": soup.find("input", {"id": "queryBlock"}).get('value'),
