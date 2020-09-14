@@ -13,7 +13,8 @@ class talker():
 	def jsonify(self,html):
 		pass
 
-	def request(self, fname, lname, sdate, edate):       
+	def request(self, fname, lname, sdate, edate): 
+		S = requests.Session()      
 		daterange = pd.date_range(sdate, edate)
 		for i in daterange:
 			if i.month < 10:
@@ -29,7 +30,7 @@ class talker():
 			record = sqldatabase.check_name(bdate, fname, lname) 
 			if record == "notexist":
 				data = self.pdata(fname, lname, day, month, year)
-				r = requests.post(self.url, data = data)
+				r = S.post(self.url, data = data)
 				if self.bad in r.content:
 					continue
 				else:
