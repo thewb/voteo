@@ -37,6 +37,7 @@ class talker():
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
 					record = sqldatabase.check_name(bdate, fname, lname)
+					return record
 			else:
 				return record 
 
