@@ -23,7 +23,6 @@ class DB:
 
 def insert(data):
 	db = DB()
-	vs = list(data.values())
 	sql = "INSERT INTO `voter` (`vuid`, `fname`, `lname`, `regdate`, `bdate`, `maddress`, `raddress`, `precinct`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (data['vuid'], data['fname'], data['lname'], data['regdate'], data['bdate'], data['maddress'], data['raddress'], data['precinct'])
 	db.query(sql)
 	db.commit()
