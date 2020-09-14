@@ -19,19 +19,18 @@ class travis(talker.talker):
 		return cache
 
 	def jsonify(self,html):
-		not_available = "N/A"
 		soup = bs(html, "lxml")
 		values_dict = {
 			"vuid": soup.find("span", {"class": "voterVUID"}).getText(strip=True),
 			"fname": soup.find("input", {"id": "queryBlock"}).get('value'),
-			"mname": not_available,
+			"mname": self.not_available,
 			"lname": soup.find("input", {"id": "query"}).get('value'),
 			"regdate": soup.find("td", {"valign": "top"}).text.split()[4],
 			"bdate": "",
 			"maddress": soup.find("input", {"name": "address.fullAddress"}).get('value').strip(),
 			"raddress": soup.find("input", {"name": "address.fullAddress"}).get('value').strip(),
 			"precinct": soup.find_all("td", {"valign": "top"}, limit=5)[4].text.split()[1],
-			"party": not_available
+			"party": self.not_available
 		}
 
 		return values_dict	

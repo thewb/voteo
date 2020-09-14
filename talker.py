@@ -5,7 +5,10 @@ import sqldatabase
 
 class talker():
 	def __init__(self):
-		self.raw = " "
+		self.raw = ""
+		self.bad = ""
+		self.url = ""
+		self.not_available = "N/A"
 
 	def pdata(self, fname, lname, day, month, year):
 		pass

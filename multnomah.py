@@ -30,9 +30,8 @@ class multnomah(talker.talker):
 		soup = bs(html, "lxml")
 		full_name = soup.find("span", {"class": "value"}).get_text(strip=True)
 		name_list = full_name.split()
-		not_available = "N/A"
 		values_dict = {
-			"vuid": not_available,
+			"vuid": self.not_available,
 			"fname": name_list[1],
 			"mname": name_list[2],
 			"lname": name_list[0][:-1],
@@ -40,7 +39,7 @@ class multnomah(talker.talker):
 			"bdate": "",
 			"maddress": soup.find("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"}).get_text(strip=True),
 			"raddress": soup.find("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"}).get_text(strip=True),
-			"precinct": not_available,
+			"precinct": self.not_available,
 			"party": soup.find("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"}).get_text(strip=True)
 		}
 

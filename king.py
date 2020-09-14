@@ -27,19 +27,18 @@ class king(talker.talker):
 		mstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailinghousestreet"}).get_text(strip=True)
 		mcst = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailingcitystatezip"}).get_text(strip=True)
 		maddress = mstreet + " " + mcst
-		not_available = "N/A"
 
 		values_dict = {
 			"vuid": not_available,
 			"fname": soup.find("span", {"class": "mvi-my-name-first"}).get_text(strip=True),
-			"mname": not_available,
+			"mname": self.not_available,
 			"lname": soup.find("span", {"class": "mvi-my-name-last"}).get_text(strip=True),
 			"regdate": pd.to_datetime("1900-01-01").date(),
 			"bdate": "",
 			"raddress": raddress,
 			"maddress": maddress,
 			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).get_text(strip=True),
-			"party": not_available
+			"party": self.not_available
 		}
 
 		return values_dict
