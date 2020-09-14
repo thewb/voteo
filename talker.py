@@ -30,7 +30,10 @@ class talker():
 			record = sqldatabase.check_name(bdate, fname, lname) 
 			if record == "notexist":
 				data = self.pdata(fname, lname, day, month, year)
-				r = S.post(self.url, data = data)
+				try:
+					r = S.post(self.url, data = data, cookies=self.cookies)
+				except:
+					r = S.post(self.url, data = data)
 				if self.bad in r.content:
 					continue
 				else:
