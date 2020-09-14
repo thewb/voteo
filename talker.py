@@ -33,15 +33,13 @@ class talker():
 				data = self.pdata(fname, lname, day, month, year)
 				r = requests.post(self.url, data = data)
 				if self.bad in r.content:
-					print(self.bad)
 					continue
 				else:
 					jdata = self.jsonify(r.content)
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
-					return jdata
+					record = sqldatabase.check_name(bdate, fname, lname)
 			else:
-				print("record exists")
 				return record 
 
 

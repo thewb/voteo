@@ -3,6 +3,7 @@ import json
 from bs4 import BeautifulSoup as bs
 import talker
 from urllib.parse import urlparse, parse_qs, urlencode
+import pandas as pd
 
 class king(talker.talker):
 	def __init__(self):
@@ -27,18 +28,17 @@ class king(talker.talker):
 		mstreet = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailinghousestreet"}).get_text(strip=True)
 		mcst = soup.find("span", {"id": "currentelectiondata21_voterewsreginfo_mvpreginfomailingcitystatezip"}).get_text(strip=True)
 		maddress = mstreet + " " + mcst
-		not_available = "N/A in kingcounty"
+		not_available = "N/A"
 
 		values_dict = {
 			"vuid": not_available,
 			"fname": soup.find("span", {"class": "mvi-my-name-first"}).get_text(strip=True),
 			"lname": soup.find("span", {"class": "mvi-my-name-last"}).get_text(strip=True),
-			"regdate": not_available,
+			"regdate": pd.to_datetime("1900-01-01").date(),
 			"bdate": "",
 			"raddress": raddress,
 			"maddress": maddress,
 			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).get_text(strip=True)
 		}
- 
-	
+
 		return values_dict

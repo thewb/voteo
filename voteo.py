@@ -37,7 +37,8 @@ def lookup():
         return render_template('template.html', raw=raw, fname=fname, lname=lname)
 
     if fmat == "json":
-        return app.response_class(response=raw, mimetype="application/json")
+        jdata = json.dumps(raw, indent=0, default=str)
+        return app.response_class(response=jdata, mimetype="application/json")
 
 if __name__ == '__main__':
    app.run(host="0.0.0.0",port=5000)  
