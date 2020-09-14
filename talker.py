@@ -6,7 +6,7 @@ import sqldatabase
 class talker():
 	def __init__(self):
 		self.raw = ""
-		self.bad = ""
+		self.bad = b""
 		self.url = ""
 		self.not_available = "N/A"
 
