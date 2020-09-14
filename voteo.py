@@ -5,6 +5,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 import json
 import travis
 import king
+import json
 
 app = Flask(__name__, template_folder='/home/wb/voteo')
 
@@ -33,12 +34,10 @@ def lookup():
         return render_template('fourofour.html', fname=fname, lname=lname)
 
     if fmat == "html":
-        t = json.loads(jdata)  
-        return render_template('template.html', raw=t, fname=fname, lname=lname)
+        return render_template('template.html', raw=raw, fname=fname, lname=lname)
 
     if fmat == "json":
-        response = app.response_class(response=jdata, mimetype="application/json")
-        return response
+        return app.response_class(response=raw, mimetype="application/json")
 
 if __name__ == '__main__':
    app.run(host="0.0.0.0",port=5000)  

@@ -23,13 +23,14 @@ class travis(talker.talker):
 		soup = bs(html, "lxml")
 		nonBreakSpace = u'\xa0'
 		values_dict = {
-			"lame": soup.find("input", {"name": "criteria.lastName"}).get('value'),
-			"fname": soup.find("input", {"name": "criteria.firstName"}).get('value'),
+			"lname": soup.find("input", {"id": "query"}).get('value'),
+			"fname": soup.find("input", {"id": "queryBlock"}).get('value'),
 			"vuid": soup.find("span", {"class": "voterVUID"}).getText(strip=True),
-			"rdate": soup.find("td", {"valign": "top"}).text.split()[4],
-			"raddress": soup.find("input", {"name": "address.fullAddress"}).get('value'),
-			"maddress": soup.find("input", {"name": "address.fullAddress"}).get('value'), 
+			"regdate": soup.find("td", {"valign": "top"}).text.split()[4],
+			"raddress": soup.find("input", {"name": "address.fullAddress"}).get('value').strip(),
+			"maddress": soup.find("input", {"name": "address.fullAddress"}).get('value').strip(), 
 			"precinct": soup.find_all("td", {"valign": "top"}, limit=5)[4].text.split()[1]
 		}
 
-		return json.dumps(values_dict, indent=0, sort_keys=False, default=None)	
+		#return json.dumps(values_dict, indent=0, sort_keys=False, default=None)
+		return values_dict	

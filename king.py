@@ -33,7 +33,7 @@ class king(talker.talker):
 			"vuid": not_available,
 			"fname": soup.find("span", {"class": "mvi-my-name-first"}).get_text(strip=True),
 			"lname": soup.find("span", {"class": "mvi-my-name-last"}).get_text(strip=True),
-			"rdate": not_available,
+			"regdate": not_available,
 			"bdate": "",
 			"raddress": raddress,
 			"maddress": maddress,
@@ -41,4 +41,4 @@ class king(talker.talker):
 		}
  
 	
-		return json.dumps(values_dict, indent=0, sort_keys=False, default=None)	
+		return values_dict

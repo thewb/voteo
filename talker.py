@@ -28,8 +28,7 @@ class talker():
 				day = str(i.day)
 			year = str(i.year)
 			bdate = pd.to_datetime(i).date()
-			#record = sqldatabase.check_name(bdate, fname, lname) 
-			record = "notexist"
+			record = sqldatabase.check_name(bdate, fname, lname) 
 			if record == "notexist":
 				data = self.pdata(fname, lname, day, month, year)
 				r = requests.post(self.url, data = data)
@@ -37,12 +36,13 @@ class talker():
 					print(self.bad)
 					continue
 				else:
-					jdata = json.loads(self.jsonify(r.content))
-					print(jdata)
+					jdata = self.jsonify(r.content)
 					jdata['bdate'] = bdate
 					sqldatabase.insert(jdata)
 					return jdata
 			else:
+				print("record exists")
 				return record 
+
 
 
