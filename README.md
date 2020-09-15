@@ -1,6 +1,6 @@
 # voteo
 Voteo is a Flask application that searches voter records databases to build a database conatining voter information. 
-Currently, voteo only works with Austin, Texas (Travis County); and Seattle, Washington (King County) voter records databases. 
+Currently, voteo only works with Austin, Texas (Travis County); Portland, Oregon (Multnomah County); and Seattle, Washington (King County) voter records databases. 
  
 ```Future plans``` 
 * Include more counties/parishes and states to compare the amount of information different places provide
