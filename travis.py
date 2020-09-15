@@ -23,14 +23,14 @@ class travis(talker.talker):
 		values_dict = {
 			"vuid": soup.find("span", {"class": "voterVUID"}).getText(strip=True),
 			"fname": soup.find("input", {"id": "queryBlock"}).get('value'),
-			"mname": self.not_available,
+			"mname": 'NULL',
 			"lname": soup.find("input", {"id": "query"}).get('value'),
 			"regdate": soup.find("td", {"valign": "top"}).text.split()[4],
 			"bdate": "",
 			"maddress": soup.find("input", {"name": "address.fullAddress"}).get('value').strip(),
 			"raddress": soup.find("input", {"name": "address.fullAddress"}).get('value').strip(),
 			"precinct": soup.find_all("td", {"valign": "top"}, limit=5)[4].text.split()[1],
-			"party": self.not_available
+			"party": 'NULL'
 		}
 
 		return values_dict	

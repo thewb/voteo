@@ -24,7 +24,8 @@ class DB:
 
 def insert(data):
 	db = DB()
-	sql = "INSERT INTO `voter` (`vuid`, `fname`, `mname`, `lname`, `regdate`, `bdate`, `maddress`, `raddress`, `precinct`, `party`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s, '%s')" % (data['vuid'], data['fname'], data['mname'], data['lname'], pd.to_datetime(data['regdate']).date(), data['bdate'], data['maddress'], data['raddress'], data['precinct'], data['party'])
+	data['regdate'] = pd.to_datetime(data['regdate']).date()
+	sql = "INSERT INTO `voter` (`vuid`, `fname`, `mname`, `lname`, `regdate`, `bdate`, `maddress`, `raddress`, `precinct`, `party`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (data['vuid'], data['fname'], data['mname'], data['lname'], data['regdate'], data['bdate'], data['maddress'], data['raddress'], data['precinct'], data['party'])
 	db.query(sql)
 	db.commit()
 	return 0

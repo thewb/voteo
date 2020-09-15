@@ -9,6 +9,7 @@ class talker():
 		self.bad = b""
 		self.url = ""
 		self.not_available = "N/A"
+		self.cookies = {}
 
 	def pdata(self, fname, lname, day, month, year):
 		pass

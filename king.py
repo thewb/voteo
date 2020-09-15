@@ -29,7 +29,7 @@ class king(talker.talker):
 		maddress = mstreet + " " + mcst
 
 		values_dict = {
-			"vuid": not_available,
+			"vuid": 'NULL',
 			"fname": soup.find("span", {"class": "mvi-my-name-first"}).get_text(strip=True),
 			"mname": self.not_available,
 			"lname": soup.find("span", {"class": "mvi-my-name-last"}).get_text(strip=True),
@@ -38,7 +38,7 @@ class king(talker.talker):
 			"raddress": raddress,
 			"maddress": maddress,
 			"precinct": soup.find("span", {"id": "voterreginfo_mvpreginfoprecinct"}).get_text(strip=True),
-			"party": self.not_available
+			"party": 'NULL'
 		}
 
 		return values_dict
