@@ -36,8 +36,8 @@ class multnomah(talker.talker):
 			"lname": name_list[0][:-1],
 			"regdate": pd.to_datetime("1900-01-01").date(),
 			"bdate": "",
-			"maddress": soup.findAll("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"})[4].get_text(strip=True),
-			"raddress": soup.findAll("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"})[4].get_text(strip=True),
+			"maddress": soup.findAll("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"})[4].get_text(strip=True).replace("AVEPORTLAND", "AVE PORTLAND"),
+			"raddress": soup.findAll("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"})[4].get_text(strip=True).replace("AVEPORTLAND", "AVE PORTLAND"),
 			"precinct": 'NULL',
 			"party": soup.findAll("div", {"class": "col-12 col-md-8 text-md-left mt-md-2"})[3].get_text(strip=True)
 		}
